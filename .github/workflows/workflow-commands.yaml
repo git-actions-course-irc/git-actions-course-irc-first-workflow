@@ -6,4 +6,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Setting an error message
-              run: echo "::error::Missing semicolon" 
+              run: echo "::error::Missing semicolon"  # This will be shown as an error in the logs. This will not fail the workflow, it will just be shown as an error in the logs.
+
+            - name: Setting an error message with params
+              run: echo "::error title=Error title,file=app.js,line=2,endline=3,col=5,endColumn=7::Missing semicolon" 
+
+            - name: Setting an debug message with params
+              run: echo "::debug title=Debug title,file=app.js,line=2,endline=3,col=5,endColumn=7::Debug message" 
+
+            - name: Setting an warning message with params
+              run: echo "::warning title=Warning title,file=app.js,line=2,endline=3,col=5,endColumn=7::Warning message" 
+
+            - name: Setting an notice message with params
+              run: echo "::notice title=Notice title,file=app.js,line=2,endline=3,col=5,endColumn=7::Notice message" 
