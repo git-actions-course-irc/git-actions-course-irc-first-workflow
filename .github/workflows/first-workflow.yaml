@@ -1,5 +1,5 @@
 name: First Workflow
-on: [push]
+on: [push]       #trigger the workflow on push events only
 
 jobs:
     run-shell-commands:
@@ -11,4 +11,19 @@ jobs:
               run: |
                 node -v
                 npm -v
+
+    parallel-job-macos:
+        runs-on: macos-latest
+        steps:
+            - name: View SW Version
+              run: sw_vers
+
+    dependent-job:
+        runs-on: windows-latest
+        needs: run-shell-commands
+        steps:
+            - name: echo a string
+              run: Write-Ouput "Window String"
+            - name: Error Step
+              run: doesnotexists
         

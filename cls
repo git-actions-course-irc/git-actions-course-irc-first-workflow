@@ -1,0 +1,32 @@
+[1mdiff --git a/.github/workflows/first-workflow.yaml b/.github/workflows/first-workflow.yaml[m
+[1mindex fa12b96..e05509c 100644[m
+[1m--- a/.github/workflows/first-workflow.yaml[m
+[1m+++ b/.github/workflows/first-workflow.yaml[m
+[36m@@ -1,5 +1,5 @@[m
+ name: First Workflow[m
+[31m-on: [push][m
+[32m+[m[32mon: [push]       #trigger the workflow on push events only[m
+ [m
+ jobs:[m
+     run-shell-commands:[m
+[36m@@ -11,4 +11,19 @@[m [mjobs:[m
+               run: |[m
+                 node -v[m
+                 npm -v[m
+[32m+[m
+[32m+[m[32m    parallel-job-macos:[m
+[32m+[m[32m        runs-on: macos-latest[m
+[32m+[m[32m        steps:[m
+[32m+[m[32m            - name: View SW Version[m
+[32m+[m[32m              run: sw_vers[m
+[32m+[m
+[32m+[m[32m    dependent-job:[m
+[32m+[m[32m        runs-on: windows-latest[m
+[32m+[m[32m        needs: run-shell-commands[m
+[32m+[m[32m        steps:[m
+[32m+[m[32m            - name: echo a string[m
+[32m+[m[32m              run: Write-Ouput "Window String"[m
+[32m+[m[32m            - name: Error Step[m
+[32m+[m[32m              run: doesnotexists[m
+         [m
+\ No newline at end of file[m
