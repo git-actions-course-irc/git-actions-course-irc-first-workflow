@@ -26,4 +26,5 @@ jobs:
               run: Write-Output "Window String"
             - name: Error Step
               run: doesnotexistsss
-        
+
+#if you commit like git commit -m "dont run [actions skip]" the workflow will not be triggered. This is useful when you want to make changes to the code without triggering the workflow.
