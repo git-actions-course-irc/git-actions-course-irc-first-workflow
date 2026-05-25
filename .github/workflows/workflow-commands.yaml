@@ -9,13 +9,30 @@ jobs:
               run: echo "::error::Missing semicolon"  # This will be shown as an error in the logs. This will not fail the workflow, it will just be shown as an error in the logs.
 
             - name: Setting an error message with params
-              run: echo "::error title=Error title,file=app.js,line=2,endline=3,col=5,endColumn=7::Missing semicolon" 
+              run: echo "::error title=Error title,file=app.js,line=2,endline=3,col=5,endColumn=7::Missing semicolon"  # This will be shown as an error in the logs with the title "Error title" and the file "app.js" with the line number and column number. This will not fail the workflow, it will just be shown as an error in the logs.
 
             - name: Setting an debug message with params
-              run: echo "::debug title=Debug title,file=app.js,line=2,endline=3,col=5,endColumn=7::Debug message" 
+              run: echo "::debug title=Debug title,file=app.js,line=2,endline=3,col=5,endColumn=7::Debug message" # This will be shown as a debug message in the logs with the title "Debug title" and the file "app.js" with the line number and column number. This will not fail the workflow, it will just be shown as a debug message in the logs.
 
             - name: Setting an warning message with params
-              run: echo "::warning title=Warning title,file=app.js,line=2,endline=3,col=5,endColumn=7::Warning message" 
+              run: echo "::warning title=Warning title,file=app.js,line=2,endline=3,col=5,endColumn=7::Warning message"  # This will be shown as a warning message in the logs with the title "Warning title" and the file "app.js" with the line number and column number. This will not fail the workflow, it will just be shown as a warning message in the logs.
 
             - name: Setting an notice message with params
-              run: echo "::notice title=Notice title,file=app.js,line=2,endline=3,col=5,endColumn=7::Notice message" 
+              run: echo "::notice title=Notice title,file=app.js,line=2,endline=3,col=5,endColumn=7::Notice message" # This will be shown as a notice message in the logs with the title "Notice title" and the file "app.js" with the line number and column number. This will not fail the workflow, it will just be shown as a notice message in the logs.
+
+            - name: Group of logs
+              run: |
+                echo "::group::My group title" 
+                echo "Inside group" 
+                echo "::endgroup::" # This will create a group of logs with the title "My group title". The logs inside the group will be shown when the group is expanded. This will not fail the workflow, it will just be shown as a group of logs in the logs.
+
+            - name: Masking a value
+              run: "::add-mask::Secret String" # This will mask the value "Secret
+
+            - name: Echo a secret
+              run: echo "Secret String"
+
+
+
+
+
