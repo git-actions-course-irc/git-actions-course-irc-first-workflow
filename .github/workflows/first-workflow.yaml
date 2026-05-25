@@ -23,7 +23,7 @@ jobs:
         needs: run-shell-commands
         steps:
             - name: echo a string
-              run: Write-Ouput "Window String"
+              run: Write-Output "Window String"
             - name: Error Step
               run: doesnotexists
         
