@@ -12,7 +12,7 @@ jobs:
                 node -v
                 npm -v
 
-    parallel-job-macos:
+    parallel-job-macos:             #this job will run in parallel with the 'run-shell-commands' job
         runs-on: macos-latest
         steps:
             - name: View SW Version
@@ -20,10 +20,10 @@ jobs:
 
     dependent-job:
         runs-on: windows-latest
-        needs: run-shell-commands
+        needs: run-shell-commands   #this job will only run after the successful completion of the 'run-shell-commands' job
         steps:
             - name: echo a string
               run: Write-Output "Window String"
             - name: Error Step
-              run: doesnotexists
+              run: doesnotexistss
         
