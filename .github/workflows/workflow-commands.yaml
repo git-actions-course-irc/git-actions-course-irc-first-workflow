@@ -22,12 +22,12 @@ jobs:
 
             - name: Group of logs
               run: |
-                echo "::group::My group title" 
+                echo "::group::My group title"  # This will create a group of logs with the title "My group title". This will not fail the workflow, it will just create a group of logs in the logs. You can collapse or expand the group of logs in the logs.
                 echo "Inside group" 
-                echo "::endgroup::" # This will create a group of logs with the title "My group title". The logs inside the group will be shown when the group is expanded. This will not fail the workflow, it will just be shown as a group of logs in the logs.
+                echo "::endgroup::"      
 
             - name: Masking a value
-              run: echo "::add-mask::Secret String" # This will mask the value "Secret
+              run: echo "::add-mask::Secret String" # This will mask the value "Secret String" in the logs. Whenever "Secret String" is shown in the logs, it will be replaced with "***". This will not fail the workflow, it will just mask the value in the logs.
 
             - name: Echo a secret
               run: echo "Secret String"
