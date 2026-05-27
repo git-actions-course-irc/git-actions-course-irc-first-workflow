@@ -1,7 +1,7 @@
 name: Working Directory and Shells
 on : [push]
 
-defaults:
+defaults:                     # Set default shell for all run steps
   run:
     shell: bash
     # working-directory: /de/ed
@@ -19,12 +19,12 @@ jobs:
                 echo $GITHUB_WORKSPACE
 
             - name: Change Working Dir
-              working-directory: /home/runner
+              working-directory: /home/runner                  # Change the working directory for this step
               run: pwd
 
     display-wd-info-windows:
         runs-on: windows-latest
-        defaults:
+        defaults:                                     # Override default shell for this job
           run:
             shell: pwsh
         steps:
