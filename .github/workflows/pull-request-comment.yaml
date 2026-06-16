@@ -1,0 +1,22 @@
+# pull request target is used when you want to run a workflow in the context of the base repository, which allows you to access secrets and other resources that are not available in the pull request context.
+#This is particularly useful for actions that need to interact with the repository, such as commenting on a pull request or updating a status check.
+# Use pull_request_target to have access to the full repository context, including secrets
+
+name: Pull Request Comment   
+on:
+    pull_request_target:           
+        types: [opened]            
+jobs:
+    pr-comment:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Comment on new PRs
+            uses: actions/github-script@v6
+            with:
+              script: |
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: "Thanks for opening this pull request! We will review it as soon as possible."
+                });
