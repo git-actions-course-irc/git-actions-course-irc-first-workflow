@@ -5,6 +5,7 @@
 name : Repo Events
 on : 
     push:
+        branches: ["feature/*"]
     pull_request:
         types: [opened, synchronize, reopened, assigned]
     issues:
