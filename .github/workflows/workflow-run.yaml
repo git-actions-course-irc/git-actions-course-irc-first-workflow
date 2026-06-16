@@ -1,0 +1,12 @@
+name: Workflow Run
+on:
+    workflow_run:
+        workflows: [Repo Events]
+        types: [completed]
+
+jobs:
+    echo-string:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Workflow Run Triggered by Repo Events Workflow"
+    

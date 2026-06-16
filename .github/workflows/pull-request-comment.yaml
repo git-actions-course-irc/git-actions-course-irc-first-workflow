@@ -2,6 +2,9 @@
 #This is particularly useful for actions that need to interact with the repository, such as commenting on a pull request or updating a status check.
 # Use pull_request_target to have access to the full repository context, including secrets
 
+# pull request target is different from pull request in that it runs in the context of the base repository, which allows you to access secrets and other resources that are not available in the pull request context.
+#  This is particularly useful for actions that need to interact with the repository, such as commenting on a pull request or updating a status check.
+
 name: Pull Request Comment   
 on:
     pull_request_target:           

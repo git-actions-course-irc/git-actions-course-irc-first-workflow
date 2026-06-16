@@ -1,3 +1,11 @@
+# This workflow checks out the repository and lists the files before and after the checkout.
+# Checkout is used when you want to clone the repository and access its contents in your workflow.
+# actions/checkout is used when you want to clone the repository and access its contents in your workflow. 
+# It allows you to work with the code, run tests, build artifacts, and perform other operations that require access to the repository's files.
+# actions/checkout is different from git checkout, which is a command used to switch branches or restore working tree files in a local Git repository. 
+# In contrast, actions/checkout is a GitHub Action that automates the process of checking out a repository in a GitHub Actions workflow.
+
+
 name: Checkout
 on : [push]
 

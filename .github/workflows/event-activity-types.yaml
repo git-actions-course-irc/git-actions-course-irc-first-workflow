@@ -1,3 +1,7 @@
+# This workflow is triggered by various events in the repository, such as pushes, pull requests, and issues. It checks out the code and prints the commit SHA and reference for debugging purposes.
+# pull request means that the workflow will run in the context of the pull request, which has limited access to secrets and other resources. 
+# This is useful for actions that do not need to interact with the repository, such as running tests or building code.
+
 name : Repo Events
 on : 
     push:
