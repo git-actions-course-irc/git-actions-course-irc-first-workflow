@@ -1,6 +1,12 @@
+# Expressions are used to evaluate values and perform operations in GitHub Actions. 
+# They can be used in various contexts, such as in workflow files, job definitions, and step definitions. Expressions can include literals, variables, functions, and operators.
+
+# Contexts are used to access information about the workflow, job, runner, and other aspects of the GitHub Actions environment.
+# They provide a way to retrieve data and make decisions based on that data.
+
 name: Expression and Context
 on: [push,pull_request,issues,workflow_dispatch]
-
+run-name: 'Expression and Context by @${{github.actor}} , event: ${{github.event_name}}'
 jobs:
     using-expressions-and-contexts:
         runs-on: ubuntu-latest
