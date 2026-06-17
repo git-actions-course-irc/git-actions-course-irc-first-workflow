@@ -1,0 +1,14 @@
+name: State Issue & PRs
+on:
+    schedule:
+        - cron: "0 14 * * *"
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@v6
+              with:
+                stale-issue-message: "This is some message"
+                days-before-stale: 1
+                days-before-close: 5
