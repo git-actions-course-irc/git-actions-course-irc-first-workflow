@@ -24,10 +24,11 @@ jobs:
 
             - name: Multiline ENV VAR
               run: |
-                DELIMITER=1234
+                DELIMITER=EOF
+
                 echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
                 echo "Here is a joke:" >> "$GITHUB_ENV"
-                curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+                curl -s -H "Accept: text/plain" https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
                 echo "$DELIMITER" >> "$GITHUB_ENV"
 
 
