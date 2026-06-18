@@ -1,0 +1,34 @@
+name: Environment Variables
+on: [push]
+
+env:
+    WF_LEVEL_ENV: Available to all jobs
+
+jobs:
+    env-vars-and-context:
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/master'
+        env:
+            JOB_LEVEL_ENV: Available to all steps in this env-vars-and-context
+        steps:
+            - name: Log ENV VAR
+              run: echo $GITHUB_REF
+
+            - name: Log Context
+              run: echo '${{ github.ref }}'
+
+            - name: Set Env Var
+              run: |
+                echo "NEW_ENV_VAR = $(data)" >> "$GITHUB_ENV"
+                echo "JOB_LEVEL_ENV = $RANDOM" >> "$GITHUB_ENV"
+
+            - name: Log Custom ENV Vars
+              env:
+                STEP_LEVEL_ENV: Available only to this step
+                WF_LEVEL_ENV: Overridden in the step
+              run: |
+                echo '${{ env.STEP_LEVEL_ENV}}'
+                echo $STEP_LEVEL_ENV
+                echo $WF_LEVEL_ENV
+                echo $JOB_LEVEL_ENV
+                echo $NEW_ENV_VAR
