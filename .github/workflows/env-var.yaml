@@ -12,7 +12,7 @@ env:
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         env:
             JOB_LEVEL_ENV: Available to all steps in this env-vars-and-context
         steps:
