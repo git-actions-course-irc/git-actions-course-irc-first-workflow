@@ -1,17 +1,17 @@
+#if is used to conditionally run a step or an entire job. It can be used with expressions and contexts to create powerful workflows that respond to specific events or conditions. 
+#In this example, we have two jobs: one that runs only for issues and pull requests, and another that runs only for push events. The first job checks if the issue has a "bug" label before running, while the second job demonstrates various expressions and dumps the contexts for debugging purposes.
+
 name: Expression and Context
 on: [push,pull_request,issues,workflow_dispatch]
 run-name: 'Expression and Context by @${{github.actor}} , event: ${{github.event_name}}'
 jobs:
-    runs-on-issues-and0prs:
+    runs-on-issues-and-pull-requests:
         runs-on: ubuntu-latest
         if: contains(fromJson('["issues","pull_request"]'), github.event_name)
         steps:
             - name: Run only if issue has a bug label
               if: contains(github.event.issue.labels.*.name, 'bug')
               run: echo ${{ join(github.event.issue.labels.*.name, ', ') }} 
-
-
-
 
 
     using-expressions-and-contexts:
