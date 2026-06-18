@@ -25,7 +25,7 @@ jobs:
             - name: Log Custom ENV Vars
               env:
                 STEP_LEVEL_ENV: Available only to this step
-                WF_LEVEL_ENV: Overridden in step
+                WF_LEVEL_ENV: Overridden in the step
               run: |
                 echo '${{ env.STEP_LEVEL_ENV}}'
                 echo $STEP_LEVEL_ENV
