@@ -1,15 +1,6 @@
 name: Matrix
-on: [push]
 
-#------- ORIGINAL --------#
-# X {os: ubuntu-latest, node-version: 14, is-ubuntu: true, experimental: false}
-# {os: ubuntu-latest, node-version: 15, is-ubuntu: true, experimental: false}
-# {os: ubuntu-latest, node-version: 16, is-ubuntu: true, experimental: true}
-# {os: windows-latest, node-version: 14, experimental: false}
-# {os: windows-latest, node-version: 15, experimental: false}
-# {os: windows-latest, node-version: 16, experimental: false}
-# {os: macos-latest, node-version: 15}
-# {os: ubuntu-latest, node-version: 17 }
+on: [push]
 
 jobs:
   node-matrix:
@@ -19,39 +10,26 @@ jobs:
       fail-fast: true
 
       matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]
+
         include:
           - os: ubuntu-latest
-            node-version: 14
             is-ubuntu: true
-            experimental: false
-
-          - os: ubuntu-latest
-            node-version: 15
-            is-ubuntu: true
-            experimental: false
-
-          - os: ubuntu-latest
-            node-version: 16
-            is-ubuntu: true
-            experimental: true
-
-          - os: windows-latest
-            node-version: 14
-            experimental: false
-
-          - os: windows-latest
-            node-version: 15
-            experimental: false
-
-          - os: windows-latest
-            node-version: 16
-            experimental: false
 
           - os: macos-latest
             node-version: 16
 
           - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+
+          - os: ubuntu-latest
             node-version: 17
+
+        exclude:
+          - os: ubuntu-latest
+            node-version: 16
 
     runs-on: ${{ matrix.os }}
 
