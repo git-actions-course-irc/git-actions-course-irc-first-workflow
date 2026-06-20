@@ -1,0 +1,23 @@
+name: Hello User
+on: [push]
+
+jobs:
+    greet-Ishwar:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greet Ishwar
+              run: echo "Hello Ishwar"
+
+    greet-Keshav:
+        runs-on: ubuntu-latest
+        needs: greet-Ishwar
+        steps:
+            - name: Greet Keshav
+              run: echo "Hello Keshav"
+
+    Bye-Bye:
+        runs-on: ubuntu-latest
+        needs: greet-Keshav
+        steps:
+            - name: Say Ishwar and Keshav
+              run: echo "Goodbye Ishwar and Keshav"
