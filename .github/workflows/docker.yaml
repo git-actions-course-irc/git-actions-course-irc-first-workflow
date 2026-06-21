@@ -50,3 +50,10 @@ jobs:
         with:
           entrypoint: cat
           args: text.txt
+      
+      - uses: actions/checkout@v3
+      - name: Run a bash script
+        uses: docker://node:22-alpine
+        with:
+          entrypoint: ./script.sh
+          args: "Some string"
