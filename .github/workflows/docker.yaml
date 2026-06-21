@@ -52,6 +52,10 @@ jobs:
           args: text.txt
       
       - uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: chmod +x script.sh
+
       - name: Run a bash script
         uses: docker://node:22-alpine
         with:
