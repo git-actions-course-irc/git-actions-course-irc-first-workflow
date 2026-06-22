@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1",
     "node": "^26.3.1",
     "type": "^2.7.3"
   }
