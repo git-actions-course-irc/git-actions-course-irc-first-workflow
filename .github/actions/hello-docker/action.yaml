@@ -1,0 +1,24 @@
+name: Hello World
+author: Ishwar Raj Chauhan
+description: Greet someone and record the time
+
+inputs:
+  who_to_greet:
+    description: Who to greet
+    required: true
+    default: World
+
+outputs:
+  time:
+    description: Time of greeting
+
+runs:
+  using: "docker"
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who_to_greet }}
+  env:
+    HELLO: WORLD
+  
+  post-entrypoint: "/cleanup.sh"
+  post-if: runner.os == 'linux'
