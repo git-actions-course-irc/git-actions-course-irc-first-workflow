@@ -4,5 +4,8 @@
     "@actions/github": "^6.0.0",
     "node": "^26.3.1",
     "type": "^2.7.3"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.44.0"
   }
 }
