@@ -1,5 +1,5 @@
 name: Hello Yashi
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
     greetings-yashi:
