@@ -1,0 +1,19 @@
+name: Hello Yashi
+on: [push]
+
+jobs:
+    greetings-yashi:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greet Yashi
+              run: echo "Hello Yashi"
+
+    greetings-ishwar:
+        needs: greetings-yashi
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greet Ishwar
+              run: echo "Hello Ishwar"
+
+
+    
